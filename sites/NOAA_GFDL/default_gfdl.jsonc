@@ -35,8 +35,8 @@
           //"mixed_layer_depth",
           //"tropical_pacific_sea_level",
           //"temp_extremes_distshape"
-          "albedofb",
-          "blocking_neale",
+          //"albedofb"
+          //"blocking_neale",
           "seaice_suite"
       ]
     }
