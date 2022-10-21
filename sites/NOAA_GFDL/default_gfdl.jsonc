@@ -50,7 +50,8 @@
 
   // Site-specific installation of observational data used by individual PODs.
   // This will be GCP'ed locally if running on PPAN.
-  "OBS_DATA_REMOTE": "/home/oar.gfdl.mdtf/mdtf/inputdata/obs_data",
+  //"OBS_DATA_REMOTE": "/home/oar.gfdl.mdtf/mdtf/inputdata/obs_data",
+  "OBS_DATA_REMOTE": "/archive/wnd/MDTF-GFDL/obs_data", 
 
   // Parent directory containing observational data used by individual PODs.
   "OBS_DATA_ROOT": "$MDTF_TMPDIR/inputdata/obs_data",
@@ -59,7 +60,6 @@
   "WORKING_DIR": "$MDTF_TMPDIR/wkdir",
 
   // Directory to write output files. Defaults to working directory if blank.
-  //"OUTPUT_DIR": "$MDTF_TMPDIR/mdtf_out",
   "OUTPUT_DIR": "/archive/wnd/MDTF-GFDL/wkdir", 
 
   // GFDL ----------------------------------------------------------------------
@@ -87,6 +87,10 @@
 
   // Method used to fetch model data.
   "data_manager": "GFDL_PP",
+   
+  // Data type that PODs will run
+  // "single_run" (default) or "multi_run"
+  "data_type": "single_run",
 
   // Time (in seconds) to wait before giving up on transferring a data file to
   // the local filesystem. Set to zero to disable.
