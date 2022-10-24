@@ -31,13 +31,13 @@
           //"precip_diurnal_cycle",
           //"SM_ET_coupling",
           //"ENSO_RWS",
-          //"ocn_surf_flux_diag",
-          //"mixed_layer_depth",
+          "ocn_surf_flux_diag"
+          //"mixed_layer_depth"
           //"tropical_pacific_sea_level",
-          //"temp_extremes_distshape"
+          //"temp_extremes_distshape",
           //"albedofb"
           //"blocking_neale",
-          "seaice_suite"
+          //"seaice_suite"
       ]
     }
   ],
