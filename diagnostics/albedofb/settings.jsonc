@@ -21,7 +21,7 @@
 			]
 		},
 	 	"pod_env_vars" : {
-        		"area_file_path": "/nbhome/[insert username here]/mdtf/atmos.static.nc",
+        		"area_file_path": "/archive/oar.gfdl.cmip6/ESM4/DECK/ESM4_historical_D1/gfdl.ncrc4-intel16-prod-openmp/pp/atmos/atmos.static.nc",
         		"area_var_name": "area"
     		}
 	},
