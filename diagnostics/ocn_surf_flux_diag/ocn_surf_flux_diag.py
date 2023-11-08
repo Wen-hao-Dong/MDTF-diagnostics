@@ -61,9 +61,9 @@ warnings.simplefilter("ignore")
 
 ################## Define User setting #############
 # Read framework variables (pod_env_vars)
-lon_lim = [np.float(os.getenv("lon_min")),np.float(os.getenv("lon_max"))]
-lat_lim = [np.float(os.getenv("lat_min")),np.float(os.getenv("lat_max"))]
-year_lim = [np.float(os.getenv("FIRSTYR")),np.float(os.getenv("LASTYR"))]
+lon_lim = [float(os.getenv("lon_min")),float(os.getenv("lon_max"))]
+lat_lim = [float(os.getenv("lat_min")),float(os.getenv("lat_max"))]
+year_lim = [float(os.getenv("FIRSTYR")),float(os.getenv("LASTYR"))]
 
 print("============== MDTF ocean surface flux diagnostic =============")
 print("User setting variables:")
@@ -320,10 +320,8 @@ fig.savefig(
     facecolor="w",
     edgecolor="w",
     orientation="portrait",
-    papertype=None,
     format=None,
     transparent=False,
     bbox_inches="tight",
     pad_inches=None,
-    frameon=None,
 )

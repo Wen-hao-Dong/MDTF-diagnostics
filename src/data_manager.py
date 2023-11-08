@@ -11,7 +11,7 @@ import typing
 from abc import ABC
 import pandas as pd
 
-from src import util, core, diagnostic, preprocessor, pod_setup
+from src import util, core, varlistentry_util, diagnostic, pod_setup, preprocessor
 from src import query_fetch_preprocess as qfp
 _log = logging.getLogger(__name__)
 
@@ -562,7 +562,7 @@ class DataframeQueryDataSourceBase(DataSourceBase, metaclass=util.MDTFABCMeta):
             obj_name = obj.name
 
         for v in var_iterator:
-            if v.stage < diagnostic.VarlistEntryStage.QUERIED:
+            if v.stage < varlistentry_util.VarlistEntryStage.QUERIED:
                 continue
             rows = set([])
             for d_key in v.iter_data_keys():
@@ -582,10 +582,12 @@ class DataframeQueryDataSourceBase(DataSourceBase, metaclass=util.MDTFABCMeta):
             if expt_df is None:
                 expt_df = v_expt_df.copy()
             else:
-                expt_df = pd.merge(
-                    expt_df, v_expt_df,
-                    how='inner', on=key_col, sort=False, validate='1:1'
-                )
+                # Everything is just Stack Overflow answers example #16894614
+                # https://stackoverflow.com/questions/70525053/merging-multiple-data-frames-causing-duplicate-column-names
+                df_list = [expt_df, v_expt_df]
+                s = pd.concat([x.set_index('expt_key') for x in df_list], axis=1, keys=range(len(df_list)))
+                s.columns = s.columns.map('{0[1]}_{0[0]}'.format)
+                expt_df = s.reset_index()
             if expt_df.empty:
                 raise util.DataExperimentEvent(("Eliminated all choices of experiment "
                     f"attributes for {obj_name} when adding {v.full_name}."), v)

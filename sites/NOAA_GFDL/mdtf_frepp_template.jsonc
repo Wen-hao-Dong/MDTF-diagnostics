@@ -78,6 +78,10 @@
 
   // Method used to fetch model data.
   "data_manager": "GFDL_PP",
+  
+  // Data type that PODs will run
+  // "single_run" (default) or "multi_run"
+  "data_type": "single_run",
 
   // Time (in seconds) to wait before giving up on transferring a data file to
   // the local filesystem. Set to zero to disable.
@@ -98,6 +102,9 @@
   // environment_manager = 'Conda'. Set equal to '' to install in your system's
   // default location.
   "conda_env_root": "/home/oar.gfdl.mdtf/miniconda3/envs",
+
+  // Path to micromamba executable if using micromamba
+  "micromamba_exe": "",
 
   // Root directory for python virtual environments. Only used if
   // environment_manager = 'Virtualenv'. Set equal to '' to install in your
